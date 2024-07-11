@@ -122,3 +122,7 @@ C:\Luan\provafinal\prova_final_topicos\API\obj\Debug\net8.0\refint\API.dll
 C:\Luan\provafinal\prova_final_topicos\API\obj\Debug\net8.0\API.pdb
 C:\Luan\provafinal\prova_final_topicos\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Luan\provafinal\prova_final_topicos\API\obj\Debug\net8.0\ref\API.dll
+C:\Luan\provafinal\prova_final_topicos\API\bin\Debug\net8.0\my-app\package-lock.json
+C:\Luan\provafinal\prova_final_topicos\API\bin\Debug\net8.0\my-app\package.json
+C:\Luan\provafinal\prova_final_topicos\API\bin\Debug\net8.0\my-app\public\manifest.json
+C:\Luan\provafinal\prova_final_topicos\API\bin\Debug\net8.0\my-app\tsconfig.json
