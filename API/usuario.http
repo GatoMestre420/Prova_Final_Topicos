@@ -1,0 +1,21 @@
+@base_url = http://localhost:5000/api/
+
+# USUARIO ######################################
+
+### Criação de um novo Usuario
+POST {{base_url}}/api/usuario/cadastrar
+Content-Type: application/json
+
+{   
+    "id" : 1,
+    "cpf" : "12345678912",
+    "nome": "Luan",
+    "peso" : 94.0,
+    "altura" : 1.80,
+    "imc" : 29.0,
+    
+}
+
+
+
+
