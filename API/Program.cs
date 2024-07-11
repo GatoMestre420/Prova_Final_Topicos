@@ -6,13 +6,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>();
 var app = builder.Build();
 
-Usuario usuario = new();
 
-usuario.Imc = usuario.Peso / (usuario.Altura * usuario.Altura);
+
 
 app.MapGet("/", () => "Prova Final ");
-
-
 
 app.MapPost("/api/usuario/cadastrar", ([FromBody] Usuario usuario,
     [FromServices] AppDbContext ctx) =>
@@ -22,43 +19,41 @@ app.MapPost("/api/usuario/cadastrar", ([FromBody] Usuario usuario,
     return Results.Created($"/usuario/{usuario.Id}", usuario);
 });
 
-string imcMessage = "";
 
-if (usuario.Imc < 18.5)
+app.MapPost("/api/imc/calcular", static ([FromBody] IMC imc,
+    [FromServices] AppDbContext ctx) =>
 {
-    double imcValue = usuario.Imc;
-    imcMessage = "Abaixo do peso";
-}
-if (usuario.Imc >= 18.5 && usuario.Imc < 24.9)
-{
-    double imcValue = usuario.Imc;
-    imcMessage = "Peso normal";
-}
-if (usuario.Imc >= 25 && usuario.Imc < 29.9)
-{
-    double imcValue = usuario.Imc;
-    imcMessage = "Sobrepeso";
-}
-if (usuario.Imc >= 30 && usuario.Imc < 34.9)
-{
-    double imcValue = usuario.Imc;
-    imcMessage = "Obesidade grau 1";
-}
-if (usuario.Imc >= 35 && usuario.Imc < 39.9)
-{
-    double imcValue = usuario.Imc;
-    imcMessage = "Obesidade grau 2";
-}
-if (usuario.Imc >= 40)
-{
-    double imcValue = usuario.Imc;
-    imcMessage = "Obesidade grau 3";
-}
+    imc.ValorIMC = imc.Peso / (imc.Altura * imc.Altura);    //Calculo do IMC
 
-Console.WriteLine(imcMessage);
+    if (imc.ValorIMC < 18.5)
+    {
+        imc.Classificacao = "Abaixo do Peso";
+    }
+    else if (imc.ValorIMC >= 18.5 && imc.ValorIMC <= 24.9)
+    {
+        imc.Classificacao = "Peso Normal";
+    }
+    else if (imc.ValorIMC >= 25 && imc.ValorIMC <= 29.9)
+    {
+        imc.Classificacao = "Sobrepeso";
+    }
+    else if (imc.ValorIMC >= 30 && imc.ValorIMC <= 34.9)
+    {
+        imc.Classificacao = "Obesidade Grau 1";
+    }
+    else if (imc.ValorIMC >= 35 && imc.ValorIMC <= 39.9)
+    {
+        imc.Classificacao = "Obesidade Grau 2";
+    }
+    else
+    {
+        imc.Classificacao = "Obesidade Grau 3";
+    }
 
-
-
+    ctx.Set<IMC>().Add(imc);
+    ctx.SaveChanges();
+    return Results.Created($"/imc/{imc.Id}", imc);
+});
 
 
 
