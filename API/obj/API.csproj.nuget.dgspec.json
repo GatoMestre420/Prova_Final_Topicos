@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Luan\\provafinal\\API\\API.csproj": {}
+    "C:\\Luan\\provafinal\\prova_final_topicos\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Luan\\provafinal\\API\\API.csproj": {
+    "C:\\Luan\\provafinal\\prova_final_topicos\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Luan\\provafinal\\API\\API.csproj",
+        "projectUniqueName": "C:\\Luan\\provafinal\\prova_final_topicos\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "C:\\Luan\\provafinal\\API\\API.csproj",
+        "projectPath": "C:\\Luan\\provafinal\\prova_final_topicos\\API\\API.csproj",
         "packagesPath": "C:\\Users\\autologon\\.nuget\\packages\\",
-        "outputPath": "C:\\Luan\\provafinal\\API\\obj\\",
+        "outputPath": "C:\\Luan\\provafinal\\prova_final_topicos\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,18 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
